@@ -44,7 +44,7 @@
                         <?php
                             if ($user['photo']) {                   
                         ?>
-                            <img src="../assets/images/<?= $user['photo'] ?>" alt="<?= $user['photo'] ?>" class="d-block mx-auto edit-photo " style="width: 7rem; height: 7rem; object-fit: cover;>
+                            <img src="../assets/images/<?= $user['photo'] ?>" alt="<?= $user['photo'] ?>" class="d-block mx-auto edit-photo" style="width: 7rem; height: 7rem; object-fit: cover;">
                         <?php
                             }else {                       
                         ?>
@@ -73,5 +73,6 @@
                     </div>               
             </form>
         </div>    
+    </main>
 </body>
 </html>

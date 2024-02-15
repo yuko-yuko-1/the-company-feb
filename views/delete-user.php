@@ -33,7 +33,7 @@
     </nav>
     <main class="row justify-content-center gx-0">
         <div class="col-4 text-center">
-            <i class="fa-solid fa-traiangle-exclamation text-warning display-4 d-block mb-2"></i>
+            <i class="fa-solid fa-triangle-exclamation text-warning display-4 d-block mb-2"></i>
             <h2 class="text-danger mb-5">DELETE ACCOUNT</h2>
 
             <p class="fw-bold">Are you sure you want to delete your account?</p>
@@ -48,7 +48,6 @@
                 </div>
             </div>
         </div>
-    </main>
-    
+    </main>   
 </body>
 </html>

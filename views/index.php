@@ -20,7 +20,7 @@
             <div class="card-body">
                 <form action="../actions/login-action.php" method="post" autocomplete="off">
                     <input type="text" name="username" id="username" class="form-control mb-2" placeholder="USERNAME" required autofocus>
-                    <input type="password" name="password" id="password" class="form-control mb-5"  placeholder="PASSWORD" required>
+                    <input type="password" name="password" id="password" class="form-control mb-5" placeholder="PASSWORD" required>
                     <button type="submit" class="btn btn-primary w-100">Login</button>                
                 </form>
                 <p class="text-center mt-3 small"><a href="register.php">Create Account</a></p>

@@ -4,5 +4,4 @@
     $user = new User;
 
     $user->delete();
-
 ?>

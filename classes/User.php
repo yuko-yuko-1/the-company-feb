@@ -93,41 +93,40 @@
                     }
                 }
 
-                # Homework
                 # move and save the image into the images folder
                 public function update($request, $files){
                     session_start();
-                    $id = $_SESSION['id']; // the id of the user who is currently logged-in
+                    $id = $_SESSION['id']; //the id of the user who is currently logged-in
                     $first_name = $request['first_name'];
                     $last_name = $request['last_name'];
                     $username = $request['username'];
                     $photo = $files['photo']['name'];
-                    $tmp_photo = $files['photo']['tmp_name']; //$tmp_photo -> holds the temporary path(location) of our image
+                    $tmp_photo = $files['photo']['tmp_name']; //$tmp_photo -> holds the temporary path (location) of our image
 
                     # Query string
-                    $sql ="UPDATE users SET first_name = '$first_name', last_name = '$last_name', username = '$username' WHERE id = '$id'";
+                    $sql = "UPDATE users SET first_name = '$first_name', last_name = '$last_name', username = '$username' WHERE id = '$id'";
 
                     # Execute the query string
-                    if($result = $this->conn->query($sql)){ // if this is successful
+                    if ($this->conn->query($sql)) { //if this is successful
                         $_SESSION['username'] = $username;
                         $_SESSION['fullname'] = "$first_name $last_name";
 
-                        # If there is an uploaded photo, save it to the db and save the file to the image folder
-                        if($photo){ //boolean: true or false
+                        # If there is an uploaded photo, save it to the db and save the file to the images folder
+                        if ($photo) { //boolean : true or false
                             $sql = "UPDATE users SET photo = '$photo' WHERE id = '$id'";
                             $destination = "../assets/images/$photo";
 
                             # Save the image to the db
-                            if($this->conn->query($sql)){ // boolean: true or false
-                                # Move the image to the imagtes folder
-                                if(move_uploaded_file($tmp_photo,$destination)) {
+                            if ($this->conn->query($sql)) { //boolean: true or false
+                                # Move the image to the images folder
+                                if (move_uploaded_file($tmp_photo, $destination)) {
                                     header('location: ../views/dashboard.php');
                                     exit;
                                 }else {
-                                    die("Error in moving the photo");
+                                    die("Error in moving the photo.");
                                 }
-                            }else {
-                                die("Error in uploding the photo." . $this->conn->error);
+                            }else{
+                                die("Error in uploding the photo. " . $this->conn->error);
                             }
                         }
                         header('location: ../views/dashboard.php');
@@ -139,16 +138,14 @@
 
                         public function delete(){
                             session_start();
-                            $id = $_SESSION['id']; // get the id of the user to delete
+                            $id = $_SESSION['id']; //get the id of the user to delete
                             $sql = "DELETE FROM users WHERE id = '$id'";
 
-                            if($this->conn->query($sql)){
-                                $this->logout(); // call the logout method
-
+                            if ($this->conn->query($sql)) {
+                                $this->logout(); //call the logout method
                             }else {
-                                die('Error in deleting your account: ' . $this->conn->error) ;
+                                die('Error in deleting your account: ' . $this->conn->error);
                             }
-                        }
-                        
+                        }                        
     }
 ?>
